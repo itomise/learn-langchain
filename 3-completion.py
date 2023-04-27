@@ -1,5 +1,5 @@
 # チャットモデルのラッパーをインポート
-from langchain.chat_models import ChatOpenAI
+from langchain.chat_models import AzureChatOpenAI
 # チャットモデルで利用可能なメッセージの型をインポート
 from langchain.schema import (
     AIMessage,
@@ -8,7 +8,7 @@ from langchain.schema import (
 )
 
 # チャットモデルのラッパーを初期化
-chat = ChatOpenAI(temperature=0.7)
+chat = AzureChatOpenAI(temperature=0.7)
 
 # チャットモデルに渡すメッセージを作成する
 messages = [

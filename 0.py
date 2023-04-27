@@ -1,11 +1,11 @@
-from langchain.llms import OpenAI
+from langchain.llms import AzureOpenAI
 from langchain.prompts import PromptTemplate
 
 # LLM チェーンをインポート
 from langchain.chains import LLMChain
 
 # LLM ラッパーを初期化
-llm = OpenAI(temperature=0.7)
+llm = AzureOpenAI(temperature=0.7, deployment_name="text-davinci-003")
 
 # プロンプトテンプレートの作成
 prompt = PromptTemplate(

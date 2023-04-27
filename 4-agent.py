@@ -1,13 +1,16 @@
 from langchain.agents import load_tools
 from langchain.agents import initialize_agent
-from langchain.chat_models import ChatOpenAI
-from langchain.llms import OpenAI
+from langchain.chat_models import AzureChatOpenAI
+from langchain.llms import AzureOpenAI
 
 # チャットモデルのラッパーを初期化
-chat = ChatOpenAI(temperature=0.7)
+chat = AzureChatOpenAI(temperature=0.7, 
+    deployment_name="gpt-35-turbo",
+    openai_api_version="2023-03-15-preview"
+)
 
 # LLM ラッパーを初期化
-llm = OpenAI(temperature=0.7)
+llm = AzureOpenAI(temperature=0.7, deployment_name="text-davinci-003")
 
 # ツールを導入します。 `llm-math` ツールを使うのに LLM を指定する必要があることに注意してください
 tools = load_tools(["serpapi", "llm-math"], llm=llm)

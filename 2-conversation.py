@@ -1,7 +1,8 @@
 from langchain import OpenAI, ConversationChain
+from langchain.llms import AzureOpenAI
 
 # LLM ラッパーを初期化します
-llm = OpenAI(temperature=0)
+llm = AzureOpenAI(temperature=0, deployment_name="text-davinci-003")
 
 # `ConversationChain` を初期化します
 conversation = ConversationChain(llm=llm)

@@ -1,9 +1,9 @@
 from langchain.agents import load_tools
 from langchain.agents import initialize_agent
-from langchain.llms import OpenAI
+from langchain.llms import AzureOpenAI
 
 # LLM ラッパーを導入します。これは、エージェントをコントロールするために使われます。
-llm = OpenAI(temperature=0)
+llm = AzureOpenAI(temperature=0, deployment_name="text-davinci-003")
 
 # ツールを導入します。 `llm-math` ツールを使うのに LLM を指定する必要があることに注意してください
 tools = load_tools(["serpapi", "llm-math"], llm=llm)
